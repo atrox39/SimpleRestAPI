@@ -1,15 +1,15 @@
 <?php
-
 class Router {
     private $req;
     private $res;
 
     function __construct()
     {
-        $this->req = new Request();
-        $this->req->body = file_get_contents('php://input');
-        $this->req->method = $_SERVER['REQUEST_METHOD'];
-        $this->req->props = new stdClass();
+        $this->req = new Request(
+            file_get_contents('php://input'),
+            $_SERVER['REQUEST_METHOD'],
+            $_SESSION
+        );
         $this->res = new class{
             public function send($text)
             {
