@@ -1,6 +1,6 @@
 <?php
-include_once('./Lib/Router.class.php');
+include_once('./autoload.class.php'); // Necesary for load any lib
 $router = new Router();
 $router->Get("/", function($req, $res){
-    $res->render('index');
+    $res->send("TestMessage");
 });
