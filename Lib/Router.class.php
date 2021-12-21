@@ -35,7 +35,7 @@ class Router {
     {
         if($_SERVER['REQUEST_METHOD'] == "GET" && $_SERVER['REQUEST_URI'] == $route)
         {
-            $req = $_REQUEST;
+            $req = $this->req;
             $res = $this->res;
             $fn($req, $res);
         }        
@@ -45,7 +45,7 @@ class Router {
     {
         if($_SERVER['REQUEST_METHOD'] == "POST" && $_SERVER['REQUEST_URI'] == $route)
         {
-            $req = $_REQUEST;
+            $req = $this->req;
             $res = $this->res;
             $fn($req, $res);
         }        
